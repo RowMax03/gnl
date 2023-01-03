@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:29:38 by mreidenb          #+#    #+#             */
-/*   Updated: 2022/11/09 14:12:43 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/01/03 16:14:30 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,17 @@ char	*buffer_getter(int fd, char *buf)
 	tmp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!tmp)
 		return (NULL);
-	while (i > 0 && !ft_isnewline(buf))
+	while (i != 0 && !ft_isnewline(buf))
 	{
 		i = read(fd, tmp, BUFFER_SIZE);
-		if (i < 0)
-		{
-			free (tmp);
-			return (NULL);
-		}
+		if (i == -1)
+			return (free(tmp), free(buf), NULL);
 		tmp[i] = '\0';
 		buf = ft_strjoin(buf, tmp);
 	}
 	free (tmp);
+	if (!buf[0])
+		return (free(buf), NULL);
 	return (buf);
 }
 
@@ -75,18 +74,17 @@ char	*new_buffer(char *buf)
 	while (buf[i] && buf[i] != '\n')
 		i++;
 	if (buf[i] == 0)
-	{
-		free (buf);
-		return (NULL);
-	}
+		return (free (buf), NULL);
 	new_buffer = ft_calloc((ft_strlen(buf) - i + 1), sizeof(char));
 	if (!new_buffer)
-		return (NULL);
+		return (free(buf), NULL);
 	i++;
 	while (buf[i])
 		new_buffer[j++] = buf[i++];
 	new_buffer[j] = 0;
 	free (buf);
+	if (!new_buffer[0])
+		return (free(new_buffer), NULL);
 	return (new_buffer);
 }
 
@@ -95,7 +93,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*buf;
 
-	if (BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (BUFFER_SIZE <= 0)
 		return (NULL);
 	buf = buffer_getter(fd, buf);
 	if (!buf)
