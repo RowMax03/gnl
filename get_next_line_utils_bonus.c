@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:29:43 by mreidenb          #+#    #+#             */
-/*   Updated: 2022/10/24 21:38:30 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:57:45 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_calloc(size_t count, size_t size)
 	mem = (char *) malloc(count * size);
 	if (!mem)
 		return (mem);
-	ft_memset (mem, 0,count * size);
+	ft_memset (mem, 0, count * size);
 	return (mem);
 }
 
