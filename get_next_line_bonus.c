@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:29:38 by mreidenb          #+#    #+#             */
-/*   Updated: 2022/11/09 14:31:18 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:56:03 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*buffer_getter(int fd, char *buf)
 {
