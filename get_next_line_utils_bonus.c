@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:29:43 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/01/03 14:57:45 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:00:15 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	*ft_memset(void *str, int c, size_t n)
 {
